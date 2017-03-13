@@ -1,0 +1,30 @@
+{
+  "name": "vue1-vue2",
+  "version": "1.0.0",
+  "description": "This is an example of running Vue.js 1.x and 2.x on the same page.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --config ./webpack.config.js",
+    "prestart": "webpack --config ./webpack.config.js",
+    "start": "webpack-dev-server --open",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jameymcelveen/vue1-vue2.git"
+  },
+  "keywords": [],
+  "author": "Jamey McElveen <jamey@mcelveen.us>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1"
+  },
+  "dependencies": {
+    "vue": "^1.0.28"
+  },
+  "bugs": {
+    "url": "https://github.com/jameymcelveen/vue1-vue2/issues"
+  },
+  "homepage": "https://github.com/jameymcelveen/vue1-vue2#readme"
+}

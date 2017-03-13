@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rename Vue Example </title>
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+</head>
+<body>
+    <main class="wrapper">
+        <section id="vue-1" class="container">
+            <h1>Hello Vue 1.x!</h1>
+            <h2>{{ messageText }}</h2>
+            <form>
+                <fieldset>
+                    <label for="messageField">Message</label>
+                    <input type="text" placeholder="Type Something!" id="messageField" v-model="message">
+                </fieldset>
+            </form>
+            <p><small>You are using Vue.js version {{ vueVersion }}</small></p>
+        </section>
+
+        <section id="vue-2" class="container">
+            <h1>Hello Vue 2.x!</h1>
+            <h2>{{ messageText }}</h2>
+            <form>
+                <fieldset>
+                    <label for="messageField">Message</label>
+                    <input type="text" placeholder="Type Something!" id="messageField" v-model="message">
+                </fieldset>
+            </form>
+            <p><small>You are using Vue.js version {{ vueVersion }}</small></p>
+        </section>
+    </main>
+
+    <script src="dist/vue1.js"></script>
+    <script>
+        var app1 = new Vue1({
+            el: '#vue-1',
+            data: {
+                message: ''
+            },
+            computed: {
+                vueVersion: function() {
+                    return Vue1.version;
+                },
+                messageText: function() {
+                    return this.message.length > 0 ? this.message : 'Type a message';
+                }
+            },
+            attached: function () {
+                console.log('Vue1 attached fired.');
+            },
+            mounted: function () {
+                this.$nextTick(function () {
+                    console.log('Vue1 mounted fired.');
+                })
+            }
+        })
+    </script>
+
+    <script src="https://unpkg.com/vue@2.2.4"></script>
+    <script>
+        var app2 = new Vue({
+            el: '#vue-2',
+            data: {
+                message: ''
+            },
+            computed: {
+                vueVersion: function() {
+                    return Vue.version;
+                },
+                messageText: function() {
+                    return this.message.length > 0 ? this.message : 'Type a message';
+                }
+            },
+            attached: function () {
+                console.log('Vue2 attached fired.');
+            },
+            mounted: function () {
+                this.$nextTick(function () {
+                    console.log('Vue2 mounted fired.');
+                })
+            }
+        })
+    </script>
+</body>
+</html>
